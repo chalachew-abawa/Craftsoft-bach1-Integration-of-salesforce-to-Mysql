@@ -1,0 +1,9 @@
+#%RAML 1.0 ResourceType
+   get:
+     description: Retrieve all customer records from Salesforce
+     responses:
+       200:
+         body:
+           application/json:
+             type: lib.customerType []
+             example: !include ../Examples/customers.json

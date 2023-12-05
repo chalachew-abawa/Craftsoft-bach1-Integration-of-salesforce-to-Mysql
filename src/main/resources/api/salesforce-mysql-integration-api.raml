@@ -1,0 +1,28 @@
+#%RAML 1.0
+title: Salesforce-MySQL-Integration-API
+version: 1.0.0
+baseUri: localhost:8081/api
+protocols:
+      - http
+      - https
+uses:
+  lib: library.raml
+
+
+/Customers:
+   type:
+     lib.Get_resource
+   is:
+    - lib.error
+
+
+
+/createCustomer:
+  type:
+    lib.Post_resource
+  is:
+    - lib.error
+
+     
+    
+

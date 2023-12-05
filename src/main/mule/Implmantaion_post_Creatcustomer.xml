@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd" >
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="74629ad9-698c-49e4-81ee-839c2a5b70fe" >
+		<salesforce:basic-connection username="${secure::salesforce.user}" password="${secure::salesforce.password}" securityToken="${secure::salesforce.security-token}" />
+	</salesforce:sfdc-config>
+	<sub-flow name="Implmantaion_post_CreatcustomerSub_Flow" doc:id="29413bab-8f20-4f87-a078-a2d55d96af48" >
+		<ee:transform doc:name="Transform Message" doc:id="aaf1ba64-6edc-4709-b06a-f10e4906fe13" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/csv
+---
+[{
+	Id__c: payload.Id__c,
+	Name__c: payload.Name__c,
+	Gender__c: payload.Gender__c,
+	Phone_Number__c: payload.Phone_Number__c,
+	Email__c: payload.Email__c,
+	Address__c: payload.Address__c,
+	Lattitud__c: payload.Lattitud__c,
+	Longitude__c: payload.Longitude__c
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<salesforce:upsert doc:name="Upsert" doc:id="dbedd0c9-1310-4f79-94d7-a46762dc1588" config-ref="Salesforce_Config" objectType="Customer__c" externalIdFieldName="Id__c"/>
+		<ee:transform doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+		<ee:transform doc:name="Transform Message" doc:id="cce8cc84-29ae-4d58-9a16-c0b30a9aaf35" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{"Gender__c":"Male","Id__c":1,"Phone_Number__c":"+12023454678","Name__c":"Wendish","Address__c":"USA","Email__c":"wendish5152@gmail.com","Lattitud__c":"67","Longitude__c":"34"}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>		
+	
+	
+</sub-flow>
+
+</mule>

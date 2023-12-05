@@ -1,0 +1,10 @@
+#%RAML 1.0 Library
+usage:
+types:
+  customerType: !include datatype/Datatype.raml
+  postCustomerType: !include datatype/postdataType.raml
+resourceTypes:
+  Get_resource: !include resourceType/get_resourceType.raml
+  Post_resource: !include resourceType/post_resourceType.raml
+traits:
+  error: !include trait.raml

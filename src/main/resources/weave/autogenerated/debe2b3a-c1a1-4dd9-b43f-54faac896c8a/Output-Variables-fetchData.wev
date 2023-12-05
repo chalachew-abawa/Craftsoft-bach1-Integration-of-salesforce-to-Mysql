@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_debe2b3a_c1a1_4dd9_b43f_54faac896c8a_Output_Variables_fetchData = Array<{|  Gender__c: "Ladies" | "Gents",   Id__c: Number,   Id: String {"typeId": "Id"} | Null,   Name__c: String {"typeId": "Name__c"},   Phone_Number__c: String {"typeId": "Phone_Number__c"},   Email__c: String {"typeId": "Email__c"},   Address__c: String {"typeId": "Address__c"} | Null,   Lattitud__c: Number,   Longitude__c: String {"typeId": "Longitude__c"} | Null|}>
+

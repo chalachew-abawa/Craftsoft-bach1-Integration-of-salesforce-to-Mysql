@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	<configuration doc:name="Configuration" doc:id="33a0ad1c-9597-457b-b211-fad1fdf245e3" defaultErrorHandler-ref="Global-Error-HandlerError_Handler" />
+    <http:listener-config name="salesforce-mysql-integration-api-httpListenerConfig">
+        <http:listener-connection host="${secure::http.host}" port="${secure::http.port}" />
+    </http:listener-config>
+    <apikit:config name="salesforce-mysql-integration-api-config" api="salesforce-mysql-integration-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <configuration-properties doc:name="Configuration properties" doc:id="d50ff60b-a9d2-4ab8-bc33-1235fa65ff53" file="${env}-secure.yaml" />
+	<global-property doc:name="Global Property" doc:id="d4651e21-a840-4032-b911-142f333927eb" name="env" value="dev" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="c15bf398-1efd-4b25-9593-90db8bbc1658" file="${env}-secure.yaml" key="mulesoft" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>	
+</mule>

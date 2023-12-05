@@ -1,0 +1,32 @@
+http:
+   host: "![sn0/bkKC48z/NTUjMAQSqg==]"
+   port: "![7lfNJW6/zOc=]"
+   path: "![6Wfi5/5c1Bs=]"
+
+db:
+   host: "![OFmNAQOkUqdyFmfjjRPvCPaQb2Fzqyin5NLc5R6L7Ux59Vtx+GSCcqLgXBX5rKq/xZgEgsErvSM=]"
+   port: "![GsCqbJEvqpI=]"
+   user: "![X0NN5RMaXtFmNmq4BzdTDfqdpf3mOv/w]"
+   password: "![N7eqRP9XhjaYlPKy9VmltaomBG3fvDBv]"
+   database: "![OFmNAQOkUqdyFmfjjRPvCDa8Qf+HOgkZ]"
+
+weatherapi:
+    host: "![ohwAm3JpsF78yYwMwGTDTlV5fk0vVYqT]"
+    base-path: "![rpXscuybphX+6Qn0wYkXRQ==]"
+    path: "![28iWUAT1vBf0didpPmxh/Q==]"
+    appid: "![+pYZpC7JqrUgI93W+ry0d/U5XmBkAIHPkyOrQ51jV9lyifjBcYpYGg==]"
+
+email:
+   host: "![8IjPlx0z5MRwa+ChYfE40A==]"
+   port: "![fH+3zFbr5Jo=]"
+   user: "![5u6wSpRCwv47P8ZWKz2byvttbQPMfB1x]"
+   password: "![8YDsfqO3zgRJQf0CiF/LuCq+c7iskbAD]"
+
+salesforce:
+     user: "![NU9ijVPZTJB7koZnjxz74qwnvSyfsXEB]"
+     password: "![Fjb2Rgtk00zV39J0UzzGtg==]"
+     security-token: "![wb73jBteDQWv4q2U0Vofgl6rUquz3Fu/Lr6zP2cOspI=]"
+
+
+
+

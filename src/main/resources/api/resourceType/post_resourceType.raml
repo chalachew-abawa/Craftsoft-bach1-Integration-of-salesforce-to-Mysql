@@ -1,0 +1,9 @@
+#%RAML 1.0 ResourceType
+    post:
+      description: Insert a new customer record into MySQL
+      responses:
+        201:
+          body:
+            application/json:
+              type: lib.postCustomerType
+              example: !include ../Examples/createCustomer.json                  
